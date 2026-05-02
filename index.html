@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your Giga Pet</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Princess the Pitbull</h1>
+      <p class="subtitle">Very friendly pitbull!</p>
+    </header>
+
+    <main class="pet-card">
+      <section class="pet-image-container">
+         <!-- Made the html structure for the pet image but javascript loads image -->
+        <img class="pet-image" src="" alt="Princess the Pitbull">
+        <div class="mood-pill">Mood: <span class="mood">Happy</span></div>
+      </section>
+
+      <section class="dashboard">
+        <div class="stat-row">Name: <strong><span class="name"></span></strong></div>
+        <div class="stat-row">Weight: <strong><span class="weight"></span> pounds</strong></div>
+        <div class="stat-row">Happiness: <strong><span class="happiness"></span> tail wags (per min)</strong></div>
+        <div class="stat-row">Energy: <strong><span class="energy"></span></strong></div>
+
+        <div class="button-container">
+          <button class="action-button treat-button">Treat</button>
+          <button class="action-button play-button">Play</button>
+          <button class="action-button exercise-button">Exercise</button>
+          <button class="action-button nap-button">Nap</button>
+        </div>
+      </section>
+
+      <section class="message-panel">
+        <h2>Pet Comment</h2>
+        <div class="pet-comment" aria-live="polite">I am ready for my next adventure!</div>
+
+        <h3>Recent Activity</h3>
+        <div class="comment-log"></div>
+
+        <div class="comment-entry comment-template hidden">
+          <span class="comment-action"></span>
+          <span class="comment-text"></span>
+        </div>
+      </section>
+    </main>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
