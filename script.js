@@ -38,7 +38,7 @@ function clickedTreatButton() {
 function clickedPlayButton() {
   pet_info.happiness += 2; // Increase pet happiness
 
-  pet_info.weight += 1; // Intetional error to show how console can help debug
+  pet_info.weight += 1; // Intentional error to show how console can help debug
   
   pet_info.energy -= 1; // Decrease pet energy
   reactToAction('Play', chooseComment('play'));
