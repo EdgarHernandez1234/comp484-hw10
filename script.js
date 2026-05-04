@@ -37,7 +37,9 @@ function clickedTreatButton() {
 
 function clickedPlayButton() {
   pet_info.happiness += 2; // Increase pet happiness
-  pet_info.weight -= 1; // Decrease pet weight
+
+  pet_info.weight += 1; // Intetional error to show how console can help debug
+  
   pet_info.energy -= 1; // Decrease pet energy
   reactToAction('Play', chooseComment('play'));
 }
@@ -59,6 +61,7 @@ function reactToAction(actionName, commentText) {
   checkAndUpdatePetInfoInHtml();
   showNotification(actionName, commentText);
   bouncePet();
+  logPetConsoleExamples(actionName);
 }
 
 function checkAndUpdatePetInfoInHtml() {
@@ -149,4 +152,50 @@ function bouncePet() { // Helps Princess bounce when clicking one of the buttons
 // This allows the pet image to be displayed from JavaScript instead of hardcoding it in the HTML.
 function buildPetImage() {
   return 'images/hound.png';
+}
+
+
+function logPetConsoleExamples(actionName) { // For part 1 in HW 10
+  console.group(`[Princess] ${actionName}`);
+  console.log(`[Princess] Action selected: ${actionName}`);
+  console.info('[Princess] Pet info was updated.');
+
+  if (pet_info.energy <= 2) {
+    console.warn('[Princess] Warning: energy is getting low.');
+  }
+
+  if (pet_info.weight === 0) {
+    console.error('[Princess] Error example: weight reached the minimum value.');
+  }
+
+  console.table([pet_info]); // table 
+
+  console.log( // Custom 
+    '%c[Princess] Princess says: Woof! Thanks for playing with me!',
+    'color: blue; font-weight: bold; font-size: 14px;'
+  );
+
+  console.groupEnd();
+}
+
+function trigger404Demo() { // For part 2 in HW 10, triggers 404 specifically
+  var brokenImage = document.createElement('img');
+  brokenImage.src = 'assets/does-not-exist.png'; // fake path on purpose
+  brokenImage.alt = 'Broken demo image';
+  document.body.appendChild(brokenImage);
+}
+
+function triggerTypeErrorDemo() { // For part 2 in HW 10, triggers TypeError specifically
+  var brokenValue;
+  brokenValue.toUpperCase(); // causes TypeError on purpose
+}
+
+function triggerViolationDemo() { // For part 2 in HW 10, triggers violation specifically
+  var start = performance.now();
+
+  while (performance.now() - start < 250) {
+    // intentional delay to trigger a performance issue
+  }
+
+  console.log('Violation demo finished.');
 }
